@@ -2,18 +2,16 @@ name: Links
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 0 * * *" # Every day at midnight
   pull_request:
     paths:
-      - ".github/workflows/links.yml"
+      - .github/workflows/links.yml
 
 permissions:
   contents: read
 
 jobs:
   check:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     if: github.repository == 'containerd/containerd'
     name: lychee
     timeout-minutes: 15
